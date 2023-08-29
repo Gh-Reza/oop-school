@@ -130,7 +130,7 @@ Give a ⭐️ if you like this project!
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## Acknowledgments < name="acknowledgements"></a>
+## Acknowledgments 
 
 I would like to thank Microverse and Ruby for making this possible.
 
