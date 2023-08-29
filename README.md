@@ -1,7 +1,5 @@
 # <a name="about-project">OOP School</a>
 
-The Morse Decoder takes morse code as input and outputs a decoded English string. The Morse Decoder can decode single characters, words, and messages.
-
 <!-- TABLE OF CONTENTS -->
 
 # Table of Contents
