@@ -31,6 +31,7 @@
 ### Key Features <a name="key-features"></a>
 
 - **Save the students and books records**
+- **Correct entered names**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
