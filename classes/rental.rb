@@ -3,7 +3,7 @@ class Rental
 
   def initialize(data, book, person)
     @data = data
-    @book = Book
+    @book = book
     @person = person
     book.add_rental(self)
     person.add_rental(self)
