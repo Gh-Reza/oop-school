@@ -5,10 +5,15 @@ class Person < Nameable
   attr_reader :id
 
   def initialize(age, name: 'unkown', parent_permession: true)
+    super()
     @id = rand(1..1_000_000)
     @name = name
     @parent_permession = parent_permession
     @age = age
+  end
+
+  def correct_name
+    @name
   end
 
   private
@@ -20,13 +25,4 @@ class Person < Nameable
   def can_use_services?
     of_age? || @parent_permession
   end
-
-  def correct_name
-    @name
-  end
 end
-
-reza = Person.new(13)
-reza.name = 'Reza'
-reza.parent_permession = true
-puts reza
