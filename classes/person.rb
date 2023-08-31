@@ -22,7 +22,7 @@ class Person < Nameable
   end
 
   def correct_name
-    return @name
+    @name
   end
 end
 
