@@ -48,4 +48,13 @@ class App
       puts 'Invalid option'
     end
   end
+
+  def add_book(book)
+    print 'Title: '
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
+    Book.new(title, author)
+    puts 'Book created successfully'
+  end
 end
