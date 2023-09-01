@@ -2,6 +2,7 @@ class App
   def initialize
     @books = []
     @people = []
+    @rentals = []
   end
 
   def list_books
@@ -57,4 +58,24 @@ class App
     Book.new(title, author)
     puts 'Book created successfully'
   end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+    list_books
+    book_index = gets.chomp.to_i
+    puts 'Select a person from the following list by number (not id)'
+    list_people
+    person_index = gets.chomp.to_i
+    puts 'Date: '
+    date = gets.chomp
+    @rentals << Rental.new(date, @books[book_index], @people[person_index])
+    puts 'Rental created successfully'
+  end
+
+  def list_rentals
+    @rentals.each_with_index do |rental, index|
+      puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author} - Person: #{rental.person.name}"
+    end
+  end
+
 end
