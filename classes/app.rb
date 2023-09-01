@@ -1,16 +1,25 @@
+require_relative 'book'
+require_relative 'person'
+require_relative 'student'
+require_relative 'teacher'
+require_relative 'rental'
+
 class App
   def initialize
     @books = []
     @people = []
     @rentals = []
+    @students = []
   end
 
   def list_books
-    @books.each {|book| puts "Title: #{book.title} | Author: #{book.author}"}
+    @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title} | Author: #{book.author}" }
   end
 
   def list_people
-    @people.each {|person| puts "[#{person.class}] Name: #{person.name}, ID: {person.id}, Age: #{person.age}"}
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
   end
 
   def create_student
@@ -22,7 +31,7 @@ class App
     parent_permission = gets.chomp.downcase == 'y'
     print 'Classroom: '
     classroom = gets.chomp
-    Student.new(age, classroom, name, parent_permission)
+    Student.new(age, classroom, name: name, parent_permission: parent_permission)
   end
 
   def create_teacher
@@ -32,10 +41,10 @@ class App
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
-    Teacher.new(age, specialization, name)
+    Teacher.new(age, specialization, name: name)
   end
 
-  def add_person(person)
+  def create_person
     puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     person_type = gets.chomp.to_i
 
@@ -50,12 +59,12 @@ class App
     end
   end
 
-  def add_book(book)
+  def create_book
     print 'Title: '
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-    Book.new(title, author)
+    @books << Book.new(title, author)
     puts 'Book created successfully'
   end
 
@@ -73,9 +82,12 @@ class App
   end
 
   def list_rentals
-    @rentals.each_with_index do |rental, index|
-      puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author} - Person: #{rental.person.name}"
+    puts 'ID of the person: '
+    person_id = gets.chomp.to_i
+    rentals = @rentals.select { |rental| rental.person.id == person_id }
+    puts 'Rentals:'
+    rentals.each_with_index do |rental, index|
+      puts "#{index}) Book title: #{rental.book.title}, Author: #{rental.book.author}, Rental date: #{rental.date}"
     end
   end
-
 end
