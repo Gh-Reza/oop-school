@@ -31,6 +31,9 @@
 ### Key Features <a name="key-features"></a>
 
 - **Save the students and books records**
+- **List the books and students**
+- **Add new students and books**
+- **Add rent books to students**
 - **Correct entered names**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
